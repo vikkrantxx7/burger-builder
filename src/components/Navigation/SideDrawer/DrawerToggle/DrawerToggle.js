@@ -1,5 +1,5 @@
 import React from 'react'
-import {Toggle} from '../../../Layout/Layout'
+import {Toggle} from '../../../../hoc/Layout/Layout'
 import styles from './DrawerToggle.module.css'
 
 const drawerToggle = (props) => (

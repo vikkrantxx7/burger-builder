@@ -2,17 +2,23 @@ import React from 'react'
 import styles from './Modal.module.css'
 import Backdrop from '../Backdrop/Backdrop'
 
-const modal = (props) => {
-    return (
+class Modal extends React.Component {
+
+    shouldComponentUpdate(nextProps, nextState) {
+        return this.props.purchasing !== nextProps.purchasing
+    }
+
+    render() {
+        return (
         <>
-            <Backdrop show={props.purchasing} clicked={props.modalClosed}/>
+            <Backdrop show={this.props.purchasing} clicked={this.props.modalClosed}/>
             <div className={styles.Modal} style={{
-                transform: props.purchasing ? 'translateY(0)' : 'translateY(-180%)',
-                opacity: props.purchasing ? '1' : '0'}}>
-                {props.children}
+                transform: this.props.purchasing ? 'translateY(0)' : 'translateY(-180%)',
+                opacity: this.props.purchasing ? '1' : '0'}}>
+                {this.props.children}
             </div>
-        </>
-    )
+        </>)
+    }
 }
 
-export default modal
+export default Modal
