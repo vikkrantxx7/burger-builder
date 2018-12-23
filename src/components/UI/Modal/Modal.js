@@ -7,7 +7,7 @@ const modal = (props) => {
         <>
             <Backdrop show={props.purchasing} clicked={props.modalClosed}/>
             <div className={styles.Modal} style={{
-                transform: props.purchasing ? 'translateY(0)' : 'translateY(-500px)',
+                transform: props.purchasing ? 'translateY(0)' : 'translateY(-180%)',
                 opacity: props.purchasing ? '1' : '0'}}>
                 {props.children}
             </div>
