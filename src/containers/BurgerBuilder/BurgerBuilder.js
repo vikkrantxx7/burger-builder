@@ -59,39 +59,40 @@ class BurgerBuilder extends React.Component {
     }
 
     purchaseContinueHandler = () => {
-        this.setState({
-            loading: true
-        })
-        const order = {
-            ingredients: this.state.ingredients,
-            price: this.state.totalPrice,
-            customer: {
-                name: 'Vikrant Sharma',
-                address: {
-                    street: 'Vijayapuri Colony, Hyderabad',
-                    zipcode: '501301',
-                    country: 'India'
-                },
-                email: 'vikkrant.xx7@gmail.com'
-            },
-            deliveryMethod: 'fastest'
-        }
+        // this.setState({
+        //     loading: true
+        // })
+        // const order = {
+        //     ingredients: this.state.ingredients,
+        //     price: this.state.totalPrice,
+        //     customer: {
+        //         name: 'Vikrant Sharma',
+        //         address: {
+        //             street: 'Vijayapuri Colony, Hyderabad',
+        //             zipcode: '501301',
+        //             country: 'India'
+        //         },
+        //         email: 'vikkrant.xx7@gmail.com'
+        //     },
+        //     deliveryMethod: 'fastest'
+        // }
 
-        axios.post('orders.json', order)
-            .then(Response => {
-                this.setState({
-                    loading: false,
-                    purchasing: false
-                })
-                console.log(Response)
-            })
-            .catch(error => {
-                this.setState({
-                    loading: false,
-                    purchasing: false
-                })
-                console.error(error)
-            });
+        // axios.post('orders.json', order)
+        //     .then(Response => {
+        //         this.setState({
+        //             loading: false,
+        //             purchasing: false
+        //         })
+        //         console.log(Response)
+        //     })
+        //     .catch(error => {
+        //         this.setState({
+        //             loading: false,
+        //             purchasing: false
+        //         })
+        //         console.error(error)
+        //     });
+        this.props.history.push('/checkout')
     }
 
     addIngredientHandler = (type) => {
