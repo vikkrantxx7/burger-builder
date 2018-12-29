@@ -18,7 +18,8 @@ class ContactData extends Component {
                 validation: {
                     required: true
                 },
-                valid: false
+                valid: false,
+                touched: false
             },
             street: {
                 elementType: 'textarea',
@@ -30,7 +31,8 @@ class ContactData extends Component {
                 validation: {
                     required: true
                 },
-                valid: false
+                valid: false,
+                touched: false
             },
             zipcode: {
                 elementType: 'input',
@@ -44,7 +46,8 @@ class ContactData extends Component {
                     minLength: 6,
                     maxLength: 6
                 },
-                valid: false
+                valid: false,
+                touched: false
             },
             country: {
                 elementType: 'input',
@@ -56,7 +59,8 @@ class ContactData extends Component {
                 validation: {
                     required: true
                 },
-                valid: false
+                valid: false,
+                touched: false
             },
             email: {
                 elementType: 'input',
@@ -68,7 +72,8 @@ class ContactData extends Component {
                 validation: {
                     required: true
                 },
-                valid: false
+                valid: false,
+                touched: false
             },
             deliveryMethod: {
                 elementType: 'select',
@@ -140,6 +145,7 @@ class ContactData extends Component {
             ...updatedOrderForm[inputIdentifier]
         }
         updatedFormElement.value = event.target.value
+        updatedFormElement.touched = true
         const isValid = this.validationCheck(updatedFormElement.value, updatedFormElement.validation)
         updatedFormElement.valid = isValid
         updatedOrderForm[inputIdentifier] = updatedFormElement
@@ -160,7 +166,9 @@ class ContactData extends Component {
             <form onSubmit={this.orderHandler}>
                 {formElementsArray.map(formElement => (
                     <Input key={formElement.id} elementType={formElement.config.elementType} 
-                        elementConfig={formElement.config.elementConfig} value={formElement.config.value} changed={(event) => {this.inputChangedHandler(event, formElement.id)}} />
+                        elementConfig={formElement.config.elementConfig} value={formElement.config.value} 
+                        changed={(event) => {this.inputChangedHandler(event, formElement.id)}} invalid={!formElement.config.valid} 
+                        touched={formElement.config.touched} />
                 ))}
                 <Button btnType="Success">Order</Button>
             </form>
