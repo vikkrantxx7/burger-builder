@@ -22,7 +22,7 @@ const input = (props) => {
     }
     return (
         <div className={styles.Input}>
-            <label className={styles.Label}>{props.label}</label>
+            {/* <label className={styles.Label}>{props.label}</label> */}
             {inputElement}
         </div>
     )
