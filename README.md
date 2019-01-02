@@ -1,44 +1,48 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Burger Builder Project
 
-## Available Scripts
+This is the minified version of how a full e-commerce web app looks albeit it got all of the features which are required in one.
+Below is a complete walkthrough and description of this awesome app.
 
-In the project directory, you can run:
+## Table of Contents
+- [GettingStarted](#gettingstarted)
+- [HowTo](#howto)
+- [Features](#features)
+- [Dependencies](#dependencies)
+- [Authors](#authors)
 
-### `npm start`
+### GettingStarted
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+To run this awesome app. Just clone the repo(or fork and then clone) and in the project folder run `npm install` to install all the dependencies and then type `npm start` to start the server.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+### HowTo
 
-### `npm test`
+The homepage displays -
+* Navigation Bar
+* Burger container
+* Build controls
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+NavigationBar houses Burger Builder and Orders route.
+* Burger Builder<br>
+This is the homepage and displays Burger container and Build Controls.
+	* Burger container has the preview of the burger which is in the making.
+	* Build controls aid in processing the ingredients needed to order a burger.
+* Orders<br>
+This fetches and shows all the previous orders that were successfully made and were stored in the database.<br>
+* Checkout<br>
+Once the ingredients are added the order button lits up and navigates to the purchasing summary modal which continues to the checkout.
+Checkout previews the burger being ordered and opens a short form which needs to be filled up before making the final order and saves the order to the database.
 
-### `npm run build`
+### Features
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* Responsive- Mobile friendly- this helps in hiding the navigation links and replaces them with sidebar functionality which helps in smoother navigation on small devices.
+* Single Page App- Being an SPA it is fast.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+### Dependencies
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+[create-react-app](https://github.com/facebook/create-react-app)- Used to bootstrap the whole project.<br>
+[react-router-dom](https://www.npmjs.com/package/react-router-dom)- Used to simplify routing within an SPA.<br>
+[redux/react-redux](https://react-redux.js.org/)- Manages the app state and makes it avilable throughout the app.
 
-### `npm run eject`
+### Authors
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+* [Vikrant Sharma](https://github.com/vikkrantxx7) - Built the project end-to-end.
