@@ -94,6 +94,16 @@ class ContactData extends Component {
         formIsValid: false
     }
 
+    componentDidMount() {
+        this.props.onPurchaseInit()
+    }
+
+    componentDidUpdate() {
+        if(this.props.purchased) {
+            this.props.history.push('/')
+        }
+    }
+
     orderHandler = (event) => {
         event.preventDefault()
         if(this.props.totPrc > 0) {
@@ -186,13 +196,15 @@ const mapStateToProps = state => {
     return {
         ings: state.burgerBuilder.ingredients,
         totPrc: state.burgerBuilder.totalPrice,
-        loading: state.order.loading
+        loading: state.order.loading,
+        purchased: state.order.purchased
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        onOrderBurger: (orderData) => dispatch(orderActions.purchaseBurger(orderData))
+        onOrderBurger: (orderData) => dispatch(orderActions.purchaseBurger(orderData)),
+        onPurchaseInit: () => dispatch(orderActions.purchaseInit())
     }
 }
 
