@@ -7,6 +7,13 @@ export const authStart = () => {
     }
 }
 
+export const setAuthRedirectUrl = url => {
+    return {
+        type: actionTypes.SET_AUTH_REDIRECT_URL, 
+        url
+    }
+}
+
 export const authSuccess = (idToken, userId) => {
     return {
         type: actionTypes.AUTH_SUCCESS,

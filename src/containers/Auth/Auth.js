@@ -42,6 +42,13 @@ class Auth extends Component {
         isSignup: true
     }
 
+    componentDidMount() {
+        if(!this.props.buildingBurger && this.props.authRedirectUrl) {
+            console.log(this.props.buildingBurger)
+            this.props.onSetAuthRedirectUrl()
+        }
+    }
+
     validationCheck = (value, rules) => {
         if(!rules) {
             return true
@@ -110,7 +117,7 @@ class Auth extends Component {
         }
         let authRedirect = null
         if(this.props.isValidated) {
-            authRedirect = <Redirect to="/"/>
+            authRedirect = <Redirect to={this.props.authRedirectUrl}/>
         }
         return (
             <div className={styles.Auth}>
@@ -131,13 +138,16 @@ const mapStateToProps = state => {
     return {
         loading: state.auth.loading,
         error: state.auth.error,
-        isValidated: state.auth.token != null
+        isValidated: state.auth.token != null,
+        buildingBurger: state.burgerBuilder.building,
+        authRedirectUrl: state.auth.authRedirectUrl
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        onAuth: (email, password, isSignup) => dispatch(actions.auth(email, password, isSignup))
+        onAuth: (email, password, isSignup) => dispatch(actions.auth(email, password, isSignup)),
+        onSetAuthRedirectUrl: () => dispatch(actions.setAuthRedirectUrl('/'))
     }
 }
 
