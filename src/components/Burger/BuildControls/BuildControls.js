@@ -19,7 +19,7 @@ const buildControls = (props) => (
             removed={() => props.ingredientRemoved(ctrl.type)}
             disabled={props.disabled[ctrl.type]} />)}
         <button className={styles.OrderButton} disabled={!props.purchaseState}
-            onClick={props.ordered}>ORDER NOW</button>
+            onClick={props.ordered}>{props.isAuth ? 'ORDER NOW' : 'SIGN UP/SIGN IN'}</button>
     </div>
 )
 
