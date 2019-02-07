@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 
 const navigationItem = (props) => (
     <li className={styles.NavigationItem}>
-    <NavLink activeClassName={styles.active} to={props.link} exact={(props.link === '/') ? true : false}>{props.children}</NavLink></li>
+    <NavLink activeClassName={styles.active} to={props.link} exact={(props.link === '/')}>{props.children}</NavLink></li>
 )
 
 export default navigationItem
