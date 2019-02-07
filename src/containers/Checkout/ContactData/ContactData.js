@@ -128,7 +128,7 @@ class ContactData extends Component {
         if(Object.entries(rules).length === 0) {
             return true
         }
-        let validity = false
+        let validity = true
         if(rules.required) {
             validity = value.trim() !== ''
             if(validity && rules.minLength) {
